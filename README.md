@@ -6,10 +6,10 @@ A simple tool to generate dummy data for the **"Employees"** collection in a **M
 
 ## 🚀 **Features**  
 
-- 🔹 **Generates 10 dummy records** of employee data each time the "Generate Data" button is clicked.  
-- 🔹 **Clears existing records** before adding new ones.  
-- 🔹 **Randomly generates names, salaries, languages, cities, and manager status**.  
-- 🔹 **Built with Express and Mongoose** for seamless integration with MongoDB.  
+ 🔹 **Generates 10 dummy records** of employee data each time the "Generate Data" button is clicked.  
+ 🔹 **Clears existing records** before adding new ones.  
+ 🔹 **Randomly generates names, salaries, languages, cities, and manager status**.  
+ 🔹 **Built with Express and Mongoose** for seamless integration with MongoDB.  
 
 ---
 
