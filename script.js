@@ -10,10 +10,8 @@ const PORT = 3000;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, "public")));
 
-// Connect to MongoDB
 await connectDB();
 
-// Route to generate data
 app.get("/generate-data", async (req, res) => {
     try {
         const data = await generateDummyData();
@@ -25,7 +23,6 @@ app.get("/generate-data", async (req, res) => {
     }
 });
 
-// Start the server
 app.listen(PORT, () => {
     console.log(`🚀 Server running at http://localhost:${PORT}`);
 });

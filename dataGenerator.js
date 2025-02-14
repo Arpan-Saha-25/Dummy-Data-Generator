@@ -1,22 +1,22 @@
 // ? Generate a dummy data in a collection
 // ? called "Employees" in a DB called "company"
-
 // todo :
 // {
-//     name: "harry",
+//     name: "Arpan",
 //     salary: 450001212,
 //     language: "python",
 //     city: "Dhanbad",
 //     isManager: true
 // }
+// * Generator 10 such records when a button called "generate data" is clicked.
+// * Create a Express app with mongoose to achieve it.
+// * Everytime the button is clicked, you should clear the collection.
 
-// Generator 10 such records when a button called "generate data" is clicked.
-// create a express app with mongoose to achieve it.
-// Everytime the button is clicked, you should clear the collection.
+// ------------------------------------------------------------------------------
 
 import mongoose from "mongoose";
 
-// Connect to MongoDB
+// Connecting to MongoDB
 export const connectDB = async () => {
     try {
         await mongoose.connect("mongodb://127.0.0.1:27017/company", {
@@ -29,7 +29,7 @@ export const connectDB = async () => {
     }
 };
 
-// Define Schema & Model
+// Defining Schema & Model
 const employeesSchema = new mongoose.Schema({
     name: String,
     salary: Number,
@@ -39,7 +39,7 @@ const employeesSchema = new mongoose.Schema({
 });
 const Employee = mongoose.model("Employee", employeesSchema);
 
-// Generate Dummy Data
+// Generating Dummy Data
 export const generateDummyData = async () => {
     // Clear existing data
     await Employee.deleteMany({});
@@ -50,7 +50,7 @@ export const generateDummyData = async () => {
 
     // Generate 10 records
     const dummyData = Array.from({ length: 10 }, () => ({
-        name: `Harry_${Math.floor(Math.random() * 1000)}`,
+        name: `Arpan_${Math.floor(Math.random() * 1000)}`,
         salary: Math.floor(Math.random() * 1000000) + 500000,
         language: languages[Math.floor(Math.random() * languages.length)],
         city: cities[Math.floor(Math.random() * cities.length)],
