@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy Data Generator</title>
+    <style>
+        html {
+            background-color: #000;
+            color: white;
+        }
+
+        body {
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .button-32 {
+            background-color: #fff000;
+            border-radius: 8px;
+            color: #000;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-align: center;
+            transition: 200ms;
+            border: 0;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .button-32:hover {
+            background: #f4e603;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #status {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Data Generator</h2>
+    <button class="button-32" onclick="generateData()">Generate Data</button>
+    <div id="status">Click the button to generate data.</div>
+
+    <script>
+        async function generateData() {
+            const statusDiv = document.getElementById("status");
+            statusDiv.textContent = "⏳ Generating data...";
+            try {
+                const response = await fetch("/generate-data");
+                const result = await response.json();
+                statusDiv.textContent = `✅ ${result.message}`;
+            } catch (error) {
+                statusDiv.textContent = "❌ Failed to generate data.";
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+
+</html>
